@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul>
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+    <div class="row1content">
+        <div th:if="${party}">
+            <h2 th:text="|Party: ${party.name}|">party</h2>
+            <form th:action="@{|/admin/edit-party/${party.id}|}" method="post">
+
+                <div class="editButtonColumn">
+                    <input class="buttonLook editButton" type="submit" value="save"/>
+                    <a th:href="|/party/${party.id}|" class="buttonLook editButton">cancel</a>
+                </div>
+                <div class="venueinfo">
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="name">name:</label></div>
+                        <div class="infoLineValue">
+                            <input id="name" name="partyName" th:value="${party.name}"/>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="date">date:</label></div>
+                        <div class="infoLineValue">
+                            <input id="date" name="partyDate" th:value="${party.dateAsString}"/>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="venue">venue:</label></div>
+                        <div class="infoLineValue">
+                            <select id="venue" name="partyVenue">
+                                <option th:each="venue:${venues}" th:value="${venue.venueName}"
+                                        th:text="${venue.venueName}" th:selected="${venue.id==party.venue.id}"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="artists">artists:</label></div>
+                        <div class="infoLineValue">
+                            <select id="artists" name="partyArtists" multiple>
+                                <option th:each="artist:${artists}" th:value="${artist.name}"
+                                        th:text="${artist.name}" th:selected="${party.artists.contains(artist)}"/>
+                            </select>
+                            <div th:each="artist:${party.artists}" th:text="${artist.name}">The Artist</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:unless="${party}">no party was chosen.</div>
+    <div class="filterButtonRow"></div>
+</div>
+</div>
+</body>
+</html>

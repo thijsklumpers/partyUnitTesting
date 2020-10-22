@@ -1,0 +1,69 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul>
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+    <div class="row1content">
+        <div>
+            <h2>Create a party</h2>
+            <form th:action="|/admin/create-party|" method="post">
+
+                <div class="editButtonColumn">
+                    <input class="buttonLook editButton" type="submit" value="create"/>
+                    <a th:href="|/parties|" class="buttonLook editButton">cancel</a>
+                </div>
+                <div class="venueinfo">
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="name">name:</label></div>
+                        <div class="infoLineValue">
+                            <input id="name" name="partyName"/>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="date">date:</label></div>
+                        <div class="infoLineValue">
+                            <input id="date" name="partyDate"/>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="venue">venue:</label></div>
+                        <div class="infoLineValue">
+                            <select id="venue" name="partyVenue">
+                                <option th:each="venue:${venues}"
+                                        th:text="${venue.venueName}"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="artists">artists:</label></div>
+                        <div class="infoLineValue">
+                            <select id="artists" name="partyArtists" multiple>
+                                <option th:each="artist:${artists}"
+                                        th:text="${artist.name}"/>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="filterButtonRow"></div>
+</div>
+</div>
+</body>
+</html>

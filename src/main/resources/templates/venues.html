@@ -1,0 +1,68 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul class="navlist">
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="menuButton login" href="/user/logout">logout</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="menuButton login" href="/user/login">login</a></li>
+    </ul>
+    <div class="filterArea">
+        <div class="filterButtonRow">
+            <a th:each="filterButton:${filterButtons}"
+               class="buttonLook filterButton" th:classappend="(${size}==${filterButton}) ? 'active' : ''"
+               th:text="${filterButton}"
+               th:href="|/venues/${filterButton}|"
+               href="/venues">filter
+            </a>
+        </div>
+        <div class="filters">
+            <form>
+                <div class="filterrow">
+                    <input type="number" id="minNrOfPersons" name="minNrOfPersons"
+                           th:value="${minNrOfPersons}" value="0" step="50">
+                    <label for="minNrOfPersons">minimum number of persons</label>
+                </div>
+                <div class="filterrow">
+                    <input type="number" id="maxNrOfPersons" name="maxNrOfPersons"
+                           th:value="${maxNrOfPersons}" value="5000" step="50">
+                    <label for="maxNrOfPersons">maximum number of persons</label>
+                </div>
+                <div class="filterrow">
+                    <input type="text" id="venueNameSearchString" name="venueNameSearchString"
+                           th:value="${venueNameSearchString}" value="">
+                    <label for="venueNameSearchString">name</label>
+                </div>
+                <div class="filterrow">
+                    <input type="submit" value="filter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row1 row1WithFilter">
+    <h2>Venues</h2>
+    <ul>
+        <li th:each="venue:${venues}">
+            <a th:text="${venue.venueName}"
+               th:href="'/venue/'+${venue.id}"
+               href="/venue.html"
+               class="buttonLook mediumButton">the venue name</a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

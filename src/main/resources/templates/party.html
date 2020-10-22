@@ -1,0 +1,86 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul class="navlist">
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="menuButton login" href="/user/logout">logout</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="menuButton login" href="/user/login">login</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+    <div class="row1content">
+        <div th:if="${party}">
+            <h2 th:text="|Party: ${party.name}|">venue</h2>
+            <div class="editButtonColumn">
+                <form  sec:authorize="isAuthenticated()"  th:action="@{|/going/${party.id}|}" method="post">
+                    <input class="buttonLook editButton" type="submit"
+                           th:value="${isGoing ? 'not going' : 'going'}" value="not going"/>
+                </form>
+                <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admin/edit-party/${party.id}|" class="buttonLook editButton">edit</a>
+            </div>
+            <div class="venueinfo">
+                <div class="infoLine">
+                    <div class="infoLineName">date:</div>
+                    <div class="infoLineValue"
+                         th:text="${party.getDateAsString()}">31/8/2020
+                    </div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName">venue:</div>
+                    <div class="infoLineValue"><a th:text="${party.venue.venueName}"
+                                                  th:href="|/venue/${party.venue.id}|"
+                                                  class="linkLook">The Venue</a></div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName">artist:</div>
+                    <div class="infoLineValue">
+                        <div th:each="artist:${party.artists}">
+                            <a th:text="${artist.name}"
+                               th:href="|/artist/${artist.id}|"
+                               class="linkLook">The Artist</a></div>
+                    </div>
+                </div>
+
+                <div class="infoLine">
+                    <div class="infoLineName">going:</div>
+                    <div class="infoLineValue">
+                        <div th:each="partyAnimal:${party.partyAnimals}">
+                            <a th:text="${partyAnimal.name}"
+                               th:href="|/animal/${partyAnimal.id}|"
+                               class="linkLook">The Party Animal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="prevButtonDiv">
+                    <a th:href="'/party/'+${idOfPrevParty}"
+                       href="/party.html"
+                       class="buttonLook prevNextButton">&lt;</a>
+                </div>
+                <div class="nextButtonDiv">
+                    <a th:href="'/party/'+${idOfNextParty}"
+                       href="/party.html"
+                       class="buttonLook prevNextButton">&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div th:unless="${party}">no party was chosen.</div>
+        <div class="filterButtonRow"></div>
+    </div>
+</div>
+</body>
+</html>

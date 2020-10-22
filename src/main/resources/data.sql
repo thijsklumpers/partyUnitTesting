@@ -1,0 +1,167 @@
+-- noinspection SqlDialectInspectionForFile
+
+-- noinspection SqlNoDataSourceInspectionForFile
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(0, 'De Club', 0, 1, 1, 150, 'https://transitm.mechelen.be/de-club');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(1, 'De Loods', 0, 1, 1, 1000, 'https://transitm.mechelen.be/de-loods');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(2, 'Zapoi', 0, 0, 1, 150, 'http://www.kafeezapoi.be');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(3, 'De Kuub', 0, 1, 1, 150, 'http://www.dekuub.be');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(4, 't''Ile Maline', 0, 1, 1, 400, 'https://www.tilemalines.be');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(5, 'Nekkerhal', 1, 1, 1, 8800, 'https://www.nekkerhalbrusselsnorth.com/nl/organiseer/hal/');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(6, 'Nekkerbox', 1, 1, 1, 2500, 'https://www.nekkerhalbrusselsnorth.com/nl/organiseer/nekkerbox/');
+
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(7, 'Lamot', 0, 1, 1, 300 , 'http://lamot-mechelen.be/');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(8, 'Novotel', 0, 1, 1, 100, 'https://all.accor.com/hotel/3154/index.nl.shtml#origin=novotel');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(9, 'Passade', 0, 1, 1, 150, 'https://www.passade.be/nl/feestzaal-mechelen');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(10, 'Tivoli', 0, 1, 0, 0, 'https://www.kasteeltivoli.be/locatie');
+
+insert into venue
+(ID, VENUE_NAME, ARE_OWN_DRINKS_ALLOWED,  IS_FOOD_POSSIBLE, INFO_AVAILABLE_MAX_NUMBER_OF_PERSONS, MAX_NUMBER_OF_PERSONS, LINK_MORE_INFO)
+values
+(11, 'UCG Mechelen', 0, 1, 1, 1000, 'https://www.dnls.be/nl/locatie/ugc-mechelen-mechelen/feest');
+
+
+
+
+
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 0, 'Discobaar a moeder ', 'http://www.discobaaramoeder.be/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 1, 'Tom Cruz ', 'https://soundcloud.com/tom-cruz');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 2, 'Radio Botanique ', 'https://www.facebook.com/radiobotanique/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 3, 'DJ Koen ', 'https://www.facebook.com/DJKoenMossink/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 4, 'C-Man ', 'https://www.facebook.com/cmandj/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 5, 'Robbe Roels ', 'https://vi.be/platform/robberoels');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 6, 'T&T ', 'https://www.facebook.com/wrtntmusic/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 7, 'Pierre Total ', 'https://www.facebook.com/DjPierreTotal');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 8, 'Toloko ', 'https://www.toloko.be/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 9, 'DJ Driesje ', 'https://www.facebook.com/DJ.Driesje/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 10, 'Kryptonight ', 'https://vi.be/platform/kryptonight');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 11, 'Conceptual Flaws ', 'https://www.facebook.com/ConceptualFlaws');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 12, 'Tough Titty ', 'https://www.facebook.com/Tough-Titty-277601302444865/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 13, 'Hipster Jugend ', 'https://www.facebook.com/thehipsterjugend/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 14, 'Beatsman ', 'https://www.facebook.com/Beatsman-107313024149720/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 15, 'DJ Bromance ', 'https://www.facebook.com/BromanceDJ/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 16, 'DJ Sime ', 'https://www.facebook.com/DJSime92/');
+INSERT INTO ARTIST (ID, NAME, LINK_MORE_INFO) VALUES
+( 17, 'Massiv ', 'https://www.facebook.com/deejay.massiv/');
+
+
+INSERT INTO PARTY (ID, name, date, venue_Id) VALUES
+( nextval('PARTY_SEQ'),  'Big Spring Party', '2020-03-21 21:00:00', 1);
+INSERT INTO PARTY (ID, name, date, venue_Id) VALUES
+(nextval('PARTY_SEQ'),  'Liberty 2020', '2020-04-3 21:00:00', 1);
+INSERT INTO PARTY (ID, name, date, venue_Id) VALUES
+(nextval('PARTY_SEQ'),  'Uppercuts',  '2020-03-14 22:00:00', 3);
+INSERT INTO PARTY (ID, name, date, venue_Id) VALUES
+(nextval('PARTY_SEQ'),  'Zoet Zuur',  '2020-03-21 22:00:00', 3);
+INSERT INTO PARTY (ID, name, date, venue_Id) VALUES
+(nextval('PARTY_SEQ'),  'Oldies but Goldies', '2020-03-28 22:00:00', 3);
+
+INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (0, 1);
+INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (0, 2);
+INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (1, 2);
+INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (2, 3);
+INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (2, 5);
+INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (3, 5);
+
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'admin', '$2a$10$9MIX8kYPkuB7uE/H5nHF8.KG6.YdjBA/voOnjSZnZDxLXL/2BIerS', 'ADMIN');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'marie', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'giraf', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'olifant', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'ezel', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'varaan', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'hond', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'aap', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
+(nextval('USER_SEQ'), 'kip', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+
+
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Grote Giraf', 2);
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Olijke Olifant', 3);
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Eerlijke Ezel', 4);
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Vrolijke Varaan', 5);
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Harige Hond', 6);
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Akelige Aap', 7);
+INSERT INTO PARTY_ANIMAL (ID, NAME, USER_ID) VALUES (nextval('PARTY_ANIMAL_SEQ'), 'Kakelende Kip', 8);
+
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (0, 1);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (0, 2);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (0, 3);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (1, 1);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (1, 2);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (1, 4);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (2, 1);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (2, 2);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (3, 2);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (3, 4);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (4, 2);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (4, 4);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (5, 4);
+INSERT INTO PARTY_ANIMAL_PARTIES (PARTY_ANIMALS_ID, PARTIES_ID) VALUES (6, 4);

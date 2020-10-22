@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul class="navlist">
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="menuButton login" href="/user/logout">logout</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="menuButton login" href="/user/login">login</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+    <h2>Artists</h2>
+    <ul>
+        <li th:each="artist:${artists}">
+            <a th:text="${artist.name}"
+               th:href="'/artist/'+${artist.id}"
+               href="/artist.html"
+               class="buttonLook mediumButton">the artist name</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

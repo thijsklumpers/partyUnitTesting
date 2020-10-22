@@ -1,0 +1,85 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul class="navlist">
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="menuButton login" href="/user/logout">logout</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="menuButton login" href="/user/login">login</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+    <div class="row1content">
+        <div th:if="${venue}">
+            <h2 th:text="|Venue: ${venue.venueName}|">venue</h2>
+            <div class="venueinfo">
+                <div class="infoLine">
+                    <div class="infoLineName">max number of people:</div>
+                    <div class="infoLineValue"
+                         th:text="${venue.infoAvailableMaxNumberOfPersons} ? ${venue.maxNumberOfPersons}: 'unknown'">77
+                    </div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName">are own drinks allowed:</div>
+                    <div class="infoLineValue" th:text="${venue.areOwnDrinksAllowed}">yes</div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName">is food possible:</div>
+                    <div class="infoLineValue" th:text="${venue.isFoodPossible()}">yes</div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName">more info:</div>
+                    <div class="infoLineValue"><a th:text="${venue.linkMoreInfo}"
+                                                  th:href="${venue.linkMoreInfo}"
+                                                  class="linkLook"
+                                                  target="_blank">more_info_link</a></div>
+                </div>
+            </div>
+            <div class="sublist">
+                <div th:if="${parties} and ${!parties.empty}">
+                    <h2 th:text="|Parties in ${venue.venueName}|">Parties in this Venue</h2>
+                    <ul>
+                        <li th:each="party:${parties}">
+                            <a th:text="${party.name}"
+                               th:href="'/party/'+${party.id}"
+                               href="/party.html"
+                               class="buttonLook mediumButton">the party name</a>
+                        </li>
+                    </ul>
+                </div>
+                <div th:unless="${parties} and ${!parties.empty}">
+                    <p>no parties planned</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="prevButtonDiv">
+                <a th:href="'/venue/'+${idOfPrevVenue}"
+                   href="/venue.html"
+                   class="buttonLook prevNextButton">&lt;</a>
+            </div>
+            <div class="nextButtonDiv">
+                <a th:href="'/venue/'+${idOfNextVenue}"
+                   href="/venue.html"
+                   class="buttonLook prevNextButton">&gt;</a>
+            </div>
+        </div>
+    </div>
+    <div th:unless="${venue}">no venue was chosen.</div>
+    <div class="filterButtonRow"></div>
+</div>
+</div>
+</body>
+</html>

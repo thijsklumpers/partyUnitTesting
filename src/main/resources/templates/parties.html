@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul class="navlist">
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="menuButton login" href="/user/logout">logout</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="menuButton login" href="/user/login">login</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+     
+<!--    <div>Authenticated as <span sec:authentication="name"/></div>-->
+<!--    <div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>-->
+<!--    <div sec:authorize="hasAuthority('USER')">Text visible to user.</div>-->
+<!--    <div sec:authorize="hasAuthority('ADMIN')">Text visible to admin ADMIN.</div>-->
+
+    <div sec:authorize="isAuthenticated()" class="login" th:text="${partyAnimalName}">name</div>
+    <h2>Parties</h2>
+    <div class="editButtonColumn">
+        <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admin/create-party|" class="buttonLook editButton">new</a>
+    </div>
+    <ul>
+        <li th:each="party:${parties}">
+            <a th:text="${party.name}"
+               th:href="'/party/'+${party.id}"
+               href="/party.html"
+               class="buttonLook mediumButton">the party name</a>
+        </li>
+    </ul>
+</div>
+<div class="row2">
+    <h1>come party with us</h1>
+    <hr>
+    <hr>
+    <hr>
+</div>
+<div class="row3">
+    <h3>Contact us:</h3>
+    <p>my name</p>
+    <p>my address</p>
+    <p>2800 Mechelen</p>
+    <p>0476/123123</p>
+</div>
+<div class="bottom">
+    <p>copyright ThomasMore</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul>
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+    </ul>
+</div>
+
+<div class="row1">
+    <div class="row1content">
+        <div th:if="${animal}">
+            <h2 th:text="|Party Animal: ${animal.name}|">animal</h2>
+            <div class="venueinfo">
+                <div class="infoLine" th:each="party:${animal.parties}">
+                    <div class="infoLineName">party:</div>
+                    <div class="infoLineValue">
+                        <a th:text="${party.name}"
+                           th:href="|/party/${party.id}|"
+                           class="linkLook">The Party</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div th:unless="${animal}">no animal was chosen.</div>
+        <div class="filterButtonRow"></div>
+    </div>
+</div>
+</body>
+</html>

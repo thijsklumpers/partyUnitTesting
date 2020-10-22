@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/party/static/css/style.css">
+</head>
+<body>
+
+<div class="nav">
+    <h1 th:text="${appName}"> app</h1>
+    <ul class="navlist">
+        <li><a class="menuButton" href="/parties">parties</a></li>
+        <li><a class="menuButton" href="/venues">venues</a></li>
+        <li><a class="menuButton" href="/artists">artists</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="menuButton login" href="/user/login">login</a></li>
+    </ul>
+</div>
+<div class="row1">
+    <div class="row1content">
+        <h2>Register</h2>
+        <div sec:authorize="!isAuthenticated()">
+            If you already have an account, <a class="linkLook" href="/user/login">login</a>!
+        </div>
+
+
+        <form th:action="|/user/register|" method="post">
+
+            <div class="venueinfo">
+                <div class="infoLine">
+                    <div class="infoLineName"><label for="name">username:</label></div>
+                    <div class="infoLineValue">
+                        <input id="name" name="userName" />
+                    </div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName"><label for="password">password:</label></div>
+                    <div class="infoLineValue">
+                        <input id="password" name="password" type="password"/>
+                    </div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName"><label for="nickname">nickname:</label></div>
+                    <div class="infoLineValue">
+                        <input id="nickname" name="nickname" />
+                    </div>
+                </div>
+            </div>
+            <input class="buttonLook editButton horizontal" type="submit" value="register"/>
+            <a href="/parties" class="buttonLook editButton horizontal">cancel</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
